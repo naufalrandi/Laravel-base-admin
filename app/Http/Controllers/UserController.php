@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+
 class UserController extends Controller
 {
     /**
@@ -68,7 +69,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show',compact('user'));
+        return view('users.show',compact('user'))->with('user',$user);
     }
 
     /**
@@ -107,7 +108,7 @@ class UserController extends Controller
             $input['password'] = Hash::make($input['password']);
         }
         else {
-            $input = array_except($input, array('password'));
+            $input = array_except($input,array('password'));
         }
 
         $user = User::find($id);
@@ -129,6 +130,6 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('users.index')
-            ->with('success', 'User Deleted')
+            ->with('success', 'User Deleted');
     }
 }
