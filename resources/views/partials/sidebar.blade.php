@@ -8,7 +8,6 @@
   <ul class="sidebar-menu">
     <li class="menu-header">Dashboard</li>
     <li class="{{ request()->is('/') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}"><i class="fa fa-columns"></i> <span>Dashboard</span></a></li>
-    <li class="{{ request()->is('table') ? 'active' : '' }}"><a href="{{ url('table') }}"><i class="fa fa-table"></i> <span>Tables</span></a></li>
     <li class="menu-header">Users</li>
     <li class="{{ request()->is('/users') ? 'active' : '' }}"><a class="nav-link" href="{{ route('users.index') }}"><i class="fa fa-columns"></i> <span>Users</span></a></li>
     <li class="{{ request()->is('/roles') ? 'active' : '' }}"><a class="nav-link" href="{{ route('roles.index') }}"><i class="fa fa-columns"></i> <span>Roles</span></a></li>
